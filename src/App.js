@@ -1,22 +1,16 @@
 import React, { Component } from 'react';
 import { Title } from './componets/Title';
-import { SearchForm } from './componets/SearchForm'
+import { SearchForm } from './componets/SearchForm';
 
 import './App.css';
 import 'bulma/css/bulma.css';
+import { MovieList } from './componets/MovieList';
 
 class App extends Component {
   state = { results: [] }
 
   _handleResults = (results) => {
     this.setState({ results })
-  }
-
-  _renderResults () {
-    const { results } = this.state;
-    return results.map(movie => {
-      return <p key={movie.imdbID}>{movie.Title}</p>
-    });
   }
 
   render() {
@@ -28,7 +22,7 @@ class App extends Component {
         </div>
         {this.state.results.length === 0
           ? <p>No results</p>
-          : this._renderResults()
+          : <MovieList movies={this.state.results} />
         }
       </div>
     );
