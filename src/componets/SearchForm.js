@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import OMDB_CONFIG from '../config/omdb';
+import { OMDB_API_KEY } from '../config/omdb';
 
 export class SearchForm extends Component {
   state = {
@@ -13,7 +13,7 @@ export class SearchForm extends Component {
   _handleSubmit = (e) => {
     e.preventDefault();
     const { inputMovie } = this.state;
-    fetch(`http://www.omdbapi.com/?apikey=${OMDB_CONFIG.API_KEY}&s=${inputMovie}`)
+    fetch(`http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${inputMovie}`)
       .then((response) => response.json())
       .then((results) => {
         const { Search = [], totalResults = "0" } = results;

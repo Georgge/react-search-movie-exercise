@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import OMDB_CONGIG from '../config/omdb';
+import { OMDB_API_KEY } from '../config/omdb';
 import { ButtonBackToHome } from '../componets/ButtonBackToHome';
 
 export class Detail extends Component {
@@ -19,7 +19,7 @@ export class Detail extends Component {
   }
 
   _fetchMovie ({id}) {
-    fetch(`http://www.omdbapi.com/?apikey=${OMDB_CONGIG.API_KEY}&i=${id}`)
+    fetch(`http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${id}`)
       .then((response) => response.json())
       .then((movie) => {
         console.log(movie)
