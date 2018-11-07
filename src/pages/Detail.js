@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import OMDB_CONGIG from '../config/omdb';
+import { ButtonBackToHome } from '../componets/ButtonBackToHome';
 
 export class Detail extends Component {
   static propTypes = {
@@ -48,9 +49,9 @@ export class Detail extends Component {
     } = this.state.movie;
     return (
       <div>
-        <button onClick={this._goBack}>Back</button>
+        <ButtonBackToHome />
         <h1>{Title}</h1>
-        <img src={Poster} />
+        <img src={Poster} alt={Title}/>
         <h4>{Year}</h4>
         <h3>{Actors}</h3>
         <h3>{Director || Writer}</h3>
